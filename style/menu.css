@@ -1,0 +1,28 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#page-wrap{
+    margin: 2% auto;
+    color: white;
+}
+
+#page-wrap >.main{
+    border: 1px solid #999;
+    padding: 1%;
+    overflow: auto;
+    color: black;
+    margin-inline: 1%;
+}
+
+.right{
+    float: right;
+    font-size: large;
+}
+
+.left{
+    float: left;
+    font-size: large;
+}
