@@ -43,7 +43,7 @@
 		//There has been no error
 		if($feedback === ''){
 			$root = simplexml_load_file("../xml/users.xml");
-			
+
 			$user = $root -> addchild("user");
 			$user -> addAttribute("name",$_POST['nombre']);
 			$user -> addChild("email",$_POST['correo']);
@@ -63,6 +63,7 @@
 		<link rel="stylesheet" href="../style/errors.css">
 	</head>
 	<body>
+		<?php include "../php/menu.php" ?>
 		<h1>Registrarse</h1><br>
 		<div class = "form" id = "form">
 			<form method='POST' id='form'>
