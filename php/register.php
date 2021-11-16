@@ -43,14 +43,21 @@
 		//There has been no error
 		if($feedback === ''){
 			$root = simplexml_load_file("../xml/users.xml");
-
 			$user = $root -> addchild("user");
 			$user -> addAttribute("name",$_POST['nombre']);
 			$user -> addChild("email",$_POST['correo']);
 			$user -> addChild("telefono",$_POST['numero']);
 			$user -> addChild("pass",hash("sha512",$_POST['password']));
+			
+			//Formating XML
+			$dom = new DOMDocument("1.0");
+			$dom->preserveWhiteSpace = false;
+			$dom->formatOutput = true;
+			$dom->loadXML($root->asXML());
 
-			$root -> asXML("../xml/users.xml");
+			//Save xml
+			$xml = new SimpleXMLElement($dom->saveXML());
+			$xml -> asXML("../xml/users.xml");
 		}
 	}
 ?>
