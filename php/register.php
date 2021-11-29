@@ -1,3 +1,5 @@
+<?php include "./Dbconfig.php"?>
+
 <?php
 	//a form was sent
 	$feedback = "";
@@ -42,12 +44,27 @@
 
 		//There has been no error
 		if($feedback === ''){
-			$root = simplexml_load_file("../xml/users.xml");
+			try{
+				$dsn = "mysql:dbname=$basededatos;host=$local";
+				$dbh = new PDO($dsn, $user, $pass);
+				//prepared statement
+				$stmt = $dbh -> prepare("INSERT INTO user (nombre, correo, numero, pass) VALUES (?,?,?,?)");
+				$stmt -> bindParam(1, $_POST['nombre']);
+				$stmt -> bindParam(2, $_POST['correo']);
+				$stmt -> bindParam(3, $_POST['numero']);
+				$stmt -> bindParam(4, hash("sha512",$_POST['password']));
+				//execute statement
+				$stmt -> execute();
+			}catch(PDOException $e){
+				echo $e -> getMessage();
+			}
+			$dbh = null;
+
+			//move to login
+			$root = simplexml_load_file("../xml/activeUsers.xml");
 			$user = $root -> addchild("user");
 			$user -> addAttribute("name",$_POST['nombre']);
 			$user -> addChild("email",$_POST['correo']);
-			$user -> addChild("telefono",$_POST['numero']);
-			$user -> addChild("pass",hash("sha512",$_POST['password']));
 			
 			//Formating XML
 			$dom = new DOMDocument("1.0");
