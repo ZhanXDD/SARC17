@@ -8,7 +8,7 @@ if ($local==1){
 }
 else{
     $server="localhost:3306";
-    $user="root";
+    $user="id18030521_root";
     $pass="_Bazar202122";
     $basededatos="id18030521_shop";
 }
