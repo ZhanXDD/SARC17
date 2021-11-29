@@ -1,4 +1,4 @@
-<?php include "./Dbconfig.php"?>
+<?php include "./DbConfig.php"?>
 
 <?php
 	//a form was sent
@@ -10,7 +10,7 @@
 	$feedbackTelefono = "";
 	if(isset($_POST['submit'])){
 		//check for empty name
-		if($_POST['nombre'] == ""){
+		if($_POST['name'] == ""){
 			$feedbackNombre = "Falta el nombre de usuario";
 			$feedback = "error";
 		}
@@ -28,8 +28,8 @@
 		}
 
 		//Check if numer is empty
-		if($_POST['numero'] !== ""){
-			if(!preg_match("/^\d{9,}$/",$_POST['numero'])){
+		if($_POST['phone'] !== ""){
+			if(!preg_match("/^\d{9,}$/",$_POST['phone'])){
 				$feedbackTelefono = "Si inserta telefono, debe tener minimo 9 digitos";
 				$feedback = "error";
 			}
@@ -37,7 +37,7 @@
 
 		$regex = "/^.+@.*\..{2,}$/";
 		//check for correct format
-		if(!preg_match($regex,$_POST['correo'])){
+		if(!preg_match($regex,$_POST['email'])){
 			$feedbackCorreo = "Formato del correo incorrecto";
 			$feedback = "error";	
 		}
@@ -49,9 +49,9 @@
 				$dbh = new PDO($dsn, $user, $pass);
 				//prepared statement
 				$stmt = $dbh -> prepare("INSERT INTO user VALUES (?,?,?,?)");
-				$stmt -> bindParam(1, $_POST['nombre']);
-				$stmt -> bindParam(2, $_POST['correo']);
-				$stmt -> bindParam(3, $_POST['numero']);
+				$stmt -> bindParam(1, $_POST['name']);
+				$stmt -> bindParam(2, $_POST['email']);
+				$stmt -> bindParam(3, $_POST['phone']);
 				$stmt -> bindParam(4, hash("sha512",$_POST['password']));
 				//execute statement
 				$stmt -> execute();
@@ -63,8 +63,8 @@
 			//move to login
 			$root = simplexml_load_file("../xml/activeUsers.xml");
 			$user = $root -> addchild("user");
-			$user -> addAttribute("name",$_POST['nombre']);
-			$user -> addChild("email",$_POST['correo']);
+			$user -> addAttribute("name",$_POST['name']);
+			$user -> addChild("email",$_POST['email']);
 			
 			//Formating XML
 			$dom = new DOMDocument("1.0");
@@ -100,7 +100,7 @@
 				<span class="error"><?php echo $feedbackCorreo;?></span><br>
 				
 				Numero de telefono: 
-				<input type='text' id='email' name="email">
+				<input type='text' id='phone' name="phone">
 				<span class="error"><?php echo $feedbackTelefono;?></span><br>
 				
 				Contraseña<small>*</small>: 
