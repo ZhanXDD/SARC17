@@ -48,7 +48,7 @@
 				$dsn = "mysql:dbname=$basededatos;host=$local";
 				$dbh = new PDO($dsn, $user, $pass);
 				//prepared statement
-				$stmt = $dbh -> prepare("INSERT INTO user (nombre, correo, numero, pass) VALUES (?,?,?,?)");
+				$stmt = $dbh -> prepare("INSERT INTO user VALUES (?,?,?,?)");
 				$stmt -> bindParam(1, $_POST['nombre']);
 				$stmt -> bindParam(2, $_POST['correo']);
 				$stmt -> bindParam(3, $_POST['numero']);
@@ -92,15 +92,15 @@
 		<div class = "form" id = "form">
 			<form method='POST' id='form'>
 				Nombre de usuario<small>*</small>: 
-				<input type='text' id='nombre' name="nombre">
+				<input type='text' id='name' name="name">
 				<span class="error"><?php echo $feedbackNombre;?></span><br>
 				
 				Correo electronico<small>*</small>: 
-				<input type='text' id='correo' name="correo">
+				<input type='text' id='email' name="email">
 				<span class="error"><?php echo $feedbackCorreo;?></span><br>
 				
 				Numero de telefono: 
-				<input type='text' id='numero' name="numero">
+				<input type='text' id='email' name="email">
 				<span class="error"><?php echo $feedbackTelefono;?></span><br>
 				
 				Contraseña<small>*</small>: 
