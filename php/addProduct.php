@@ -48,7 +48,7 @@
                 $dsn = "mysql:dbname=$basededatos;host=$local";
 				$dbh = new PDO($dsn, $user, $pass);
 				//prepared statement
-				$stmt = $dbh -> prepare("INSERT INTO user VALUES (?,?,?,?,?,?,?)");
+				$stmt = $dbh -> prepare("INSERT INTO product VALUES (?,?,?,?,?,?,?)");
 				$stmt -> bindParam(1, $_POST['name']);
 				$stmt -> bindParam(2, $_POST['type']);
 				$stmt -> bindParam(3, $_POST['stock']);
