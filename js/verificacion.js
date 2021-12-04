@@ -21,7 +21,7 @@ $(function(){
         if(!this.value)
             $('#nameError').text('El campo esta vacio');
     });
-    
+
     $('#name').on('input', function(){
         //check if name is not empty
         if(this.value)
@@ -32,7 +32,7 @@ $(function(){
     $('#email').on('blur', function(){
         //check if email does not comply with regexp
         if(!this.value.match(/^.+@.*\..{2,}$/))
-            $('#emailError').text('El correo tiene el formato incorrecto');
+            $('#emailError').append('El correo tiene el formato incorrecto');
     });
 
     $('#email').on('input', function(){
@@ -84,10 +84,10 @@ $(function(){
 
     $('#form').on('submit', function(event){
         
-        let errors = [$('#nameError').val(), $('#emailError').val(), $('#phoneError').val(), $('#passError').val(), $('#pass2Error').val()];
+        let errors = [$('#nameError').text(), $('#emailError').text(), $('#phoneError').text(), $('#passError').text(), $('#pass2Error').text()];
         let inputs = [$('#name').val(), $('#email').val(), $('#password').val(), $('#password2').val()];
-        
         for(let i = 0; i < inputs.length; i++){
+            console.log(inputs[i]);
             if(!inputs[i]){
                 event.preventDefault();
                 $('#generalError').text('Hay campos obligatorios no llenos');
@@ -96,7 +96,8 @@ $(function(){
             }
         }
         for(let i = 0; i < errors.length; i++){
-            if(!errors[i]){
+            console.log(errors[i]);
+            if(errors[i]){
                 event.preventDefault();
                 console.log('datos incorrecto');
                 $('#generalError').text('Hay datos introducidos erroneos');
