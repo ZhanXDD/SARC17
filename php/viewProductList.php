@@ -20,7 +20,7 @@
         <?php
             //Open connection with the databse
             $dsn ="mysql:dbname=$basededatos;host=$local";
-            $dbh = new PDO($dsn. $user, $pass);
+            $dbh = new PDO($dsn, $user, $pass);
 
             //Prepare statement
             $stmt = $dbh -> prepare("SELECT * FROM product");
@@ -33,7 +33,7 @@
 
             //No products available
             if($numProducts==0) {
-                echo('No hay ningún producto en nuestra tienda')
+                echo('No hay ningún producto en nuestra tienda');
             }
             //Show all the available products 
             else {
