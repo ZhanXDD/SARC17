@@ -18,16 +18,21 @@
             <a href="menu.php"> volver al menú principal </a>.
         </p>
         <?php
-            //Open connection with the databse
-            $dsn ="mysql:dbname=$basededatos;host=$local";
-            $dbh = new PDO($dsn, $user, $pass);
+            try {
+                //Open connection with the databse
+                $dsn ="mysql:dbname=$basededatos;host=$local";
+                $dbh = new PDO($dsn, $user, $pass);
 
-            //Prepare statement
-            $stmt = $dbh -> prepare("SELECT * FROM product");
+                //Prepare statement
+                $stmt = $dbh -> prepare("SELECT * FROM product");
 
-            //Execute statemet
-            $stmt = $dbh -> execute();
-
+                //Execute statemet
+                $stmt = $dbh -> execute();
+            }
+            catch(PDOException $e) {
+                echo $e -> getMessage();
+            }
+            
             //Get the number of diferent products (number of rows)
             $numProducts=$stmt->rowCount();
 
