@@ -10,36 +10,32 @@
     if(isset($_POST['submit'])){
 		//check for empty name
 		if($_POST['name'] == ""){
-			$feedbackNombre = "Falta el nombre de usuario";
+			$feedbackName = "Falta el nombre del producto";
 			$feedback = "error";
 		}
         //check for empty type
         if($_POST['type'] == ""){
-			$feedbackNombre = "Falta el nombre de tipo de producto";
+			$feedbackName = "Falta el nombre de tipo de producto";
 			$feedback = "error";
 		}
 
         //check for empty description
         if($_POST['description'] == ""){
-			$feedbackNombre = "Falta la descripcion de producto";
+			$feedbackName = "Falta la descripcion de producto";
 			$feedback = "error";
 		}
 
         //Check if stock is not empty and correct
         //Anchor no se sabe si funciona lo de [0-99999]
-		if($_POST['stock'] !== ""){
-			if(!preg_match("/^\[0-99999]$/",$_POST['stock'])){
-				$feedbackTelefono = "";
-				$feedback = "error";
-			}
+		if(!preg_match("/^\[0-99999]$/",$_POST['stock'])){
+			$feedbackStock = "El stock tiene que ser entre 0 y 99999";
+			$feedback = "error";
 		}
         //Check if preice is not empty and correct
         //Anchor no se sabe si funciona lo de [0-99999]
-        if($_POST['price'] !== ""){
-			if(!preg_match("/^([0-9]*[.])?[0-9]$/",$_POST['stock'])){
-				$feedbackTelefono = "";
-				$feedback = "error";
-			}
+		if(!preg_match("/^([0-9]*[.])?[0-9]$/",$_POST['stock'])){
+			$feedbackTelefono = "";
+			$feedback = "error";
 		}
 
         //There has been no error
@@ -78,18 +74,18 @@
 			<form method='POST' id='form'>
 				Nombre de producto<small>*</small>: 
 				<input type='text' id='name' name="name">
-				<span class="error"><?php echo $feedbackNombre;?></span><br>
+				<span class="error"><?php echo $feedbackName;?></span><br>
 				
 				Tipo de producto<small>*</small>: 
 				<input type='text' id='type' name="type">
 				<span class="error"><?php echo $feedbackType;?></span><br>
 				
 				Stock<small>*</small>: 
-				<input type="number" step="any" min="0" value="0">
+				<input type="number" id='stock' name="stock" step="any" min="0" value="0">
 				<span class="error"><?php echo $feedbackStock;?></span><br>
 				
 				Precio<small>*</small>: 
-				<input type="number" step="any" min="0" value="0.0">
+				<input type="number" id='price' name="price" step="any" min="0" value="0.0">
 				<span class="error"><?php echo $feedbackPrice;?></span><br>
 
 				Descripcion<small>*</small>: 
