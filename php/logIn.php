@@ -50,6 +50,7 @@
 		<meta charset="UTF-8">
 		<!-- <script src="../js/verificacion.js"></script> -->
 		<link rel="stylesheet" href="../style/errors.css">
+		<link rel="stylesheet" href="../style/logIn.css">
 	</head>
 	<body>
 		<?php include "../php/menu.php" ?>
