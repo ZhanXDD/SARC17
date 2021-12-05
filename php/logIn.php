@@ -35,6 +35,7 @@
 		<title>Iniciar Sesion</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="../style/errors.css">
+		<link rel="stylesheet" href="../style/logIn.css">
 	</head>
 	<body>
 		<?php include "../php/menu.php" ?>
