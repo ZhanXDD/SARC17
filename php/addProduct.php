@@ -27,13 +27,13 @@
 
         //Check if stock is not empty and correct
         //Anchor no se sabe si funciona lo de [0-99999]
-		if(!preg_match("/^[0-99999]$/",$_POST['stock'])){
+		if(!preg_match("/^[0-9]*$/",$_POST['stock'])){
 			$feedbackStock = "El stock tiene que ser entre 0 y 99999";
 			$feedback = "error";
 		}
         //Check if preice is not empty and correct
         //Anchor no se sabe si funciona lo de [0-99999]
-		if(!preg_match("/^[0-9999]*([.]*[0-99])?$/",$_POST['price'])){
+		if(!preg_match("/^[0-9]*([\.][0-9][0-9])?$/",$_POST['price'])){
 			$feedbackPrice = "";
 			$feedback = "error";
 		}
