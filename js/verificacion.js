@@ -15,7 +15,7 @@ $(function(){
     //Event when email has lost focus
     $('#email').on('blur', function(){
         if(!this.value.match(/^.+@.*\..{2,}$/))
-            $('#emailError').append('El correo tiene el formato incorrecto');
+            $('#emailError').text('El correo tiene el formato incorrecto');
     });
     //Event when email has changed input text
     $('#email').on('input', function(){
