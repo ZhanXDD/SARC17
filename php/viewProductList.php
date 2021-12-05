@@ -5,13 +5,13 @@
 	<head>
 		<title>Lista de Productos</title>
 		<meta charset="UTF-8">
-		<!-- Para el css: -->
-		<!--<link rel="stylesheet" href="../style/menu.css"> -->
+		<link rel="stylesheet" href="style\viewProductList.css">
 	</head>
 	<body>
+        <a href "top"></a>
 		<h1>Lista de productos</h1>
         <p> A continuación se muestran todos los productos disponibles en nuestra tienda.
-            <a href="menu.php"> volver al menú principal </a>.
+            <a href="menu.php"> volver al menú principal </a>
         </p>
         <?php
             try {
@@ -49,12 +49,15 @@
                     echo('Precio:               '.$producto->price.' € <br>');
                     echo('Unidades disponibles: '.$producto->stock.'<br>');
                     if($producto->descripcion) {
-                        echo('Descripción:          '.$producto->description.'<br>');
+                        echo('Descripción:          '.'<br>');
+                        echo(''.$producto->description.'<br>');
                     }
                     echo('</div>');
                     echo('<br>');
                 }
-            } 
-        ?>  
+            }
+            echo('<br>');
+        ?>
+        <a href="#top">Volver al comienzo de la página</a> 
 	</body>
 </html>

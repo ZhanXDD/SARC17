@@ -3,18 +3,38 @@
 body {
 	background-image: url(https://images.vectorhq.com/images/previews/36d/oriental-background-2-psd-428632.png);
     	background-position: center;
-	    background-size: cover;
-    	background-attachment: fixed;	
+	background-size: cover;
+    	background-attachment: fixed;
+	font-size: 1.1rem;
+    	font-family: Cinzel,serif;
+    	color: #fff;
+    	-webkit-font-smoothing: antialiased;
+    	-moz-osx-font-smoothing: grayscale;	
 }
+
 
 h1{
 	color: #e5be01;
 	text-align: center;
 }
 
+
 div {
-	background-color: rgba(229,190,1,0.7);
-	width: 500px;
-	height:160px;
-	
+	background-color: rgba(255,255,255,0.8);
+	color: #000;
+	border-bottom: 6px solid #e5be01;
+	margin-left: 40px;
+	margin-right: 400px;
+	padding-left: 20px;
+	padding-right: 400px;
+	padding-bottom: 20px;
+}
+
+a {
+	color: #e5be01;
+	padding: 10px 40px;
+}
+
+p {
+	text-align: center;
 }
