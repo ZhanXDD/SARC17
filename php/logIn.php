@@ -3,7 +3,7 @@
 	$feedback = "";
     if(isset($_POST['submit'])){
 		try{
-			$dsn = "mysql:dbname=$basededatos;host=$local";
+			$dsn = "mysql:dbname=$basededatos;host=$server";
 			$dbh = new PDO($dsn, $user, $pass);
 			//prepared statement
 			$stmt = $dbh -> prepare("SELECT * FROM user WHERE email=? AND password=?");
