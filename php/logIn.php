@@ -8,7 +8,9 @@
 			//prepared statement
 			$stmt = $dbh -> prepare("SELECT * FROM user WHERE email=? AND password=?");
 			$stmt -> bindParam(1, $_POST['email']);
-			$stmt -> bindParam(2, hash('512',$_POST['password']));
+
+			$crypt = hash('sha512',$_POST['password']);
+			$stmt -> bindParam(2, $crypt);
 
 			//execute statement
 			$stmt -> execute();
