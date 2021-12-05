@@ -6,21 +6,21 @@ $(function(){
 
     $('#type').on('input', function(){
         if(this.value)
-            $('#nameError').text('');
+            $('#typeError').text('');
     });
 
     $('#description').on('input', function(){
         if(this.value)
-            $('#nameError').text('');
+            $('#descriptionError').text('');
     });
 
     $('#stock').on('input', function(){
-        if(this.value.match(/^[0-99999]$/))
-            $('#nameError').text('');
+        if(this.value.match(/^[0-9]*$/))
+            $('#stockError').text('');
     });
 
     $('#price').on('input', function(){
-        if(this.value.match(/^[0-9999]*([.]*[0-99])?$/))
-            $('#nameError').text('');
+        if(this.value.match(/^[0-9]*([\.][0-9][0-9])?$/))
+            $('#priceError').text('');
     });
 });
