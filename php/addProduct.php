@@ -27,29 +27,30 @@
 
         //Check if stock is not empty and correct
         //Anchor no se sabe si funciona lo de [0-99999]
-		if(!preg_match("/^\[0-99999]$/",$_POST['stock'])){
+		if(!preg_match("/^[0-99999]$/",$_POST['stock'])){
 			$feedbackStock = "El stock tiene que ser entre 0 y 99999";
 			$feedback = "error";
 		}
         //Check if preice is not empty and correct
         //Anchor no se sabe si funciona lo de [0-99999]
-		if(!preg_match("/^([0-9]*[.])?[0-9]$/",$_POST['stock'])){
-			$feedbackTelefono = "";
+		if(!preg_match("/^[0-9999]*([.]*[0-99])?$/",$_POST['price'])){
+			$feedbackPrice = "";
 			$feedback = "error";
 		}
 
         //There has been no error
 		if($feedback === ''){
 			try{
-                $dsn = "mysql:dbname=$basededatos;host=$local";
+                $dsn = "mysql:dbname=$basededatos;host=$server";
 				$dbh = new PDO($dsn, $user, $pass);
 				//prepared statement
-				$stmt = $dbh -> prepare("INSERT INTO product VALUES (?,?,?,?,?,?,?)");
-				$stmt -> bindParam(1, $_POST['name']);
-				$stmt -> bindParam(2, $_POST['type']);
-				$stmt -> bindParam(3, $_POST['stock']);
-                $stmt -> bindParam(4, $_POST['price']);
-				$stmt -> bindParam(5, $_POST['description']);
+				$stmt = $dbh -> prepare("INSERT INTO product (name,type,stock,price,description) VALUES (?,?,?,?,?,?)");
+				$stmt -> bindParam(1, 'null');
+				$stmt -> bindParam(2, $_POST['name']);
+				$stmt -> bindParam(3, $_POST['type']);
+				$stmt -> bindParam(4, $_POST['stock']);
+                $stmt -> bindParam(5, $_POST['price']);
+				$stmt -> bindParam(6, $_POST['description']);
 				//execute statement
 				$stmt -> execute();
             }catch(PDOException $e){
@@ -75,7 +76,7 @@
 				Nombre de producto<small>*</small>: 
 				<input type='text' id='name' name="name">
 				<span class="error"><?php echo $feedbackName;?></span><br>
-				
+
 				Tipo de producto<small>*</small>: 
 				<input type='text' id='type' name="type">
 				<span class="error"><?php echo $feedbackType;?></span><br>
