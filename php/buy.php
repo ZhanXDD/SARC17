@@ -33,10 +33,9 @@
         <?php
             echo("<h1>".$productName."</h1>");
             echo('<div class="InfoProducto">');
-            echo('<img src="../img/'.$id.'.jpg" alt="No hay imagen">');
+            echo('<img src="../img/'.$_GET['id'].'.jpg" alt="No hay imagen"><br>');
             echo('Precio: '.$row['price'].'<br>');
-            echo('Descripción:<br>');
-            echo($row['description']);
+            echo('Descripción: '. $row['description']);
             echo('</div>')
         ?>
         <a href="#top">Volver al comienzo de la página</a> 
