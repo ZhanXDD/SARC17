@@ -61,22 +61,6 @@
 				echo $e -> getMessage();
 			}
 			$dbh = null;
-
-			// //move to login
-			// $root = simplexml_load_file("../xml/activeUsers.xml");
-			// $user = $root -> addchild("user");
-			// $user -> addAttribute("name",$_POST['name']);
-			// $user -> addChild("email",$_POST['email']);
-			
-			// //Formating XML
-			// $dom = new DOMDocument("1.0");
-			// $dom->preserveWhiteSpace = false;
-			// $dom->formatOutput = true;
-			// $dom->loadXML($root->asXML());
-
-			// //Save xml
-			// $xml = new SimpleXMLElement($dom->saveXML());
-			// $xml -> asXML("../xml/users.xml");
 		}
 	}
 ?>
