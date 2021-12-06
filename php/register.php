@@ -56,7 +56,7 @@
 				$stmt = $dbh -> prepare("INSERT INTO user (name, email, pass) VALUES (?,?,?)");
 				$stmt -> bindParam(1, $_POST['name']);
 				$stmt -> bindParam(2, $_POST['email']);
-				$stmt -> bindParam(4, $crypth);
+				$stmt -> bindParam(3, $crypth);
 				//execute statement
 				$stmt -> execute();
 			}else{
