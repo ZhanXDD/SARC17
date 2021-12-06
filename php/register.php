@@ -52,7 +52,7 @@
 				if($_POST['phone'] == ''){
 					$stmt = $dbh -> prepare("INSERT INTO user (name,email,pass) VALUES (?,?,?)");
 				}else{
-					$stmt = $dbh -> prepare("INSERT INTO user VALUES (?,?,?)");
+					$stmt = $dbh -> prepare("INSERT INTO user VALUES (?,?,?,?)");
 				}
 				$stmt -> bindParam(1, $_POST['name']);
 				$stmt -> bindParam(2, $_POST['email']);
