@@ -47,12 +47,14 @@
 			try{
 				$dsn = "mysql:dbname=$basededatos;host=$server";
 				$dbh = new PDO($dsn, $user, $pass);
+
+				$crypth = hash("sha512",$_POST['password']);
 				//prepared statement
 				$stmt = $dbh -> prepare("INSERT INTO user VALUES (?,?,?,?)");
 				$stmt -> bindParam(1, $_POST['name']);
 				$stmt -> bindParam(2, $_POST['email']);
 				$stmt -> bindParam(3, $_POST['phone']);
-				$stmt -> bindParam(4, hash("sha512",$_POST['password']));
+				$stmt -> bindParam(4, $crypth);
 				//execute statement
 				$stmt -> execute();
 			}catch(PDOException $e){
