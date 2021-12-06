@@ -1,3 +1,4 @@
+<?php include "../php/menu.php" ?>
 <?php include "./DbConfig.php"?><?php
 	//a form was sent
 	$feedback = "";
@@ -67,7 +68,7 @@
 		<link rel="stylesheet" href="../style/errors.css">
 	</head>
 	<body>
-		<?php include "../php/menu.php" ?>
+		
 		<h1>Añadir Producto</h1><br>
 		<div class = "form" id = "form">
 			<form method='POST' id='form'>

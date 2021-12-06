@@ -1,6 +1,8 @@
+<?php
+    session_start();
+?>
 <div id='page-wrap'>
 <link rel="stylesheet" href="../style/menu.css">
-<?php session_start(); ?>
 <header class='main' id='h1'>
     <span class="left">
         <a href="../php/viewProductList.php">Produtos</a>
