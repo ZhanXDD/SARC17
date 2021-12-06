@@ -46,8 +46,20 @@
 			try{
 				$dsn = "mysql:dbname=$basededatos;host=$server";
 				$dbh = new PDO($dsn, $user, $pass);
-
-				$crypth = hash("sha512",$_POST['password']);
+			}catch(PDOException $e){
+				echo $e -> getMessage();
+			}
+			$crypth = hash("sha512",$_POST['password']);
+			
+			if($_POST['phone'] == ''){
+				//prepared statement
+				$stmt = $dbh -> prepare("INSERT INTO user (name, email, pass) VALUES (?,?,?)");
+				$stmt -> bindParam(1, $_POST['name']);
+				$stmt -> bindParam(2, $_POST['email']);
+				$stmt -> bindParam(4, $crypth);
+				//execute statement
+				$stmt -> execute();
+			}else{
 				//prepared statement
 				$stmt = $dbh -> prepare("INSERT INTO user VALUES (?,?,?,?)");
 				$stmt -> bindParam(1, $_POST['name']);
@@ -56,8 +68,6 @@
 				$stmt -> bindParam(4, $crypth);
 				//execute statement
 				$stmt -> execute();
-			}catch(PDOException $e){
-				echo $e -> getMessage();
 			}
 			$dbh = null;
 			header("Location: ../php/logIn.php");
