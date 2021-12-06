@@ -6,6 +6,7 @@
 		<title>Lista de Productos</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="..\style\viewProductList.css">
+        <script src="../js/buyProduct.js"></script>
 	</head>
 	<body>
         <a href "top"></a>
