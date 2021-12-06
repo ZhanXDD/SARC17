@@ -60,7 +60,7 @@
 				echo $e -> getMessage();
 			}
 			$dbh = null;
-			header("Location : ../php/LogIn.php");
+			header("Location: ../php/logIn.php");
 		}
 	}
 ?>
