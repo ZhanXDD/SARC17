@@ -15,25 +15,23 @@
 		}
         //check for empty type
         if($_POST['type'] == ""){
-			$feedbackName = "Falta el nombre de tipo de producto";
+			$feedbackType = "Falta el nombre de tipo de producto";
 			$feedback = "error";
 		}
 
         //check for empty description
         if($_POST['description'] == ""){
-			$feedbackName = "Falta la descripcion de producto";
+			$feedbackDescription = "Falta la descripcion de producto";
 			$feedback = "error";
 		}
 
-        //Check if stock is not empty and correct
-        //Anchor no se sabe si funciona lo de [0-99999]
-		if(!preg_match("/^[0-9]*$/",$_POST['stock'])){
+        //Check if stock has valid format
+		if(!preg_match("/^\d{1,5}$/",$_POST['stock'])){
 			$feedbackStock = "El stock tiene que ser entre 0 y 99999";
 			$feedback = "error";
 		}
-        //Check if preice is not empty and correct
-        //Anchor no se sabe si funciona lo de [0-99999]
-		if(!preg_match("/^[0-9]*([\.][0-9][0-9])?$/",$_POST['price'])){
+        //Check if price has valid format
+		if(!preg_match("/^\d{1,5}(\.\d{1,2})?$/",$_POST['price'])){
 			$feedbackPrice = "";
 			$feedback = "error";
 		}
@@ -82,11 +80,11 @@
 				<span class="error"><?php echo $feedbackType;?></span><br>
 				
 				Stock<small>*</small>: 
-				<input type="number" id='stock' name="stock" step="any" min="0" value="0">
+				<input type="number" id='stock' name="stock" step="any" min="1" value="1">
 				<span class="error"><?php echo $feedbackStock;?></span><br>
 				
 				Precio<small>*</small>: 
-				<input type="number" id='price' name="price" step="any" min="0" value="0.0">
+				<input type="number" id='price' name="price" step="0.01" min="0" value="0.00">
 				<span class="error"><?php echo $feedbackPrice;?></span><br>
 
 				Descripcion<small>*</small>: 
