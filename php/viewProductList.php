@@ -52,6 +52,7 @@
                         echo('Descripción:          '.'<br>');
                         echo(''.$producto->description.'<br>');
                     }
+                    echo('<input type="submit" value="comprar objeto" onclick=function buyProduct($producto->id)></input>');
                     echo('</div>');
                     echo('<br>');
                 }
