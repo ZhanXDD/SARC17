@@ -13,7 +13,7 @@
         <a href "top"></a>
 		<h1>Lista de productos</h1>
         <p> A continuación se muestran todos los productos disponibles en nuestra tienda.
-            <a href="menu.php"> volver al menú principal </a>
+            <a href="menu.php"> volver al menú principal </a> <br>
         </p>
         <?php
             try {
