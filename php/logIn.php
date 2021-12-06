@@ -18,10 +18,9 @@
 			$row = $stmt -> fetch(PDO::FETCH_ASSOC);
 			if(!$row){
 				echo "Sesion iniciado con exito";
-				
+
 				$root = simplexml_load_file("../xml/users.xml");
 				$user = $root -> addchild("user");
-				$user -> addAttribute("name",$_POST['name']);
 				$user -> addChild("email",$_POST['email']);
 				
 				// Formating XML
@@ -39,6 +38,7 @@
 				$_SESSION['email'] = $row['email'];
 				$_SESSION['buy'] = array();
 				header("Location: ./register.php");
+				exit();
 			}else{
 				echo "Credenciales incorrectas";
 			}
