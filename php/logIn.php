@@ -17,8 +17,6 @@
 
 			$row = $stmt -> fetch(PDO::FETCH_ASSOC);
 			if(!$row){
-				echo "Sesion iniciado con exito";
-
 				$root = simplexml_load_file("../xml/users.xml");
 				$user = $root -> addchild("user");
 				$user -> addChild("email",$_POST['email']);
