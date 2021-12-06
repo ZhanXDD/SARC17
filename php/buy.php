@@ -1,3 +1,4 @@
+<?php include "./menu.php"?>
 <?php include "./DbConfig.php"?>
 <!DOCTYPE html>
 <html>
