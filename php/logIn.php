@@ -16,10 +16,31 @@
 			$stmt -> execute();
 
 			$row = $stmt -> fetch(PDO::FETCH_ASSOC);
-			if($row){
+			if(!$row){
 				echo "Sesion iniciado con exito";
+				session_start();
+				$_SESSION['name'] = $row['name'];
+				$_SESSION['email'] = $row['email'];
+				$_SESSION['buy'] = array();
+
+				$root = simplexml_load_file("../xml/activeUsers.xml");
+				$user = $root -> addchild("user");
+				$user -> addAttribute("name",$_POST['name']);
+				$user -> addChild("email",$_POST['email']);
+				
+				// Formating XML
+				$dom = new DOMDocument("1.0");
+				$dom->preserveWhiteSpace = false;
+				$dom->formatOutput = true;
+				$dom->loadXML($root->asXML());
+
+				// Save xml
+				$xml = new SimpleXMLElement($dom->saveXML());
+				$xml -> asXML("../xml/users.xml");
+
+				header("Location: ./register.php");
 			}else{
-				echo "Error inesperado";
+				echo "Credenciales incorrectas";
 			}
 		}catch(PDOException $e){
 			echo $e -> getMessage();
