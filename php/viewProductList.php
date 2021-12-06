@@ -18,7 +18,7 @@
         <?php
             try {
                 //Open connection with the databse
-                $dsn ="mysql:dbname=$basededatos;host=$server";
+                $dsn ="mysql:dbname=$basededatos;host=$local";
                 $dbh = new PDO($dsn, $user, $pass);
 
                 //Prepare statement
