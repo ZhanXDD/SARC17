@@ -18,12 +18,8 @@
 			$row = $stmt -> fetch(PDO::FETCH_ASSOC);
 			if(!$row){
 				echo "Sesion iniciado con exito";
-				session_start();
-				$_SESSION['name'] = $row['name'];
-				$_SESSION['email'] = $row['email'];
-				$_SESSION['buy'] = array();
-
-				$root = simplexml_load_file("../xml/activeUsers.xml");
+				
+				$root = simplexml_load_file("../xml/users.xml");
 				$user = $root -> addchild("user");
 				$user -> addAttribute("name",$_POST['name']);
 				$user -> addChild("email",$_POST['email']);
@@ -38,6 +34,10 @@
 				$xml = new SimpleXMLElement($dom->saveXML());
 				$xml -> asXML("../xml/users.xml");
 
+				session_start();
+				$_SESSION['name'] = $row['name'];
+				$_SESSION['email'] = $row['email'];
+				$_SESSION['buy'] = array();
 				header("Location: ./register.php");
 			}else{
 				echo "Credenciales incorrectas";
