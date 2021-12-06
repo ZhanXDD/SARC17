@@ -46,13 +46,15 @@
                 foreach($stmt->fetchAll(PDO::FETCH_OBJ) as $producto) {
                     echo('<div class="InfoProducto">');
                     echo('Nombre de producto:   '.$producto->name.'<br>');
-                    echo('Tipo de producto:     '.$producto->type.'<br>');
+                    //echo('Tipo de producto:     '.$producto->type.'<br>');
                     echo('Precio:               '.$producto->price.' € <br>');
-                    echo('Unidades disponibles: '.$producto->stock.'<br>');
+                    //echo('Unidades disponibles: '.$producto->stock.'<br>');
+                    /*
                     if($producto->description) {
                         echo('Descripción:          '.'<br>');
                         echo(''.$producto->description.'<br>');
-                    }
+                    }*/
+                    echo('<img src="../img/'.$producto->id.'.jpg" alt="No hay imagen"><br><br>');
                     echo('<input type="submit" value="comprar objeto" onclick="buyProduct('.$producto->id.')"> </input>');
                     echo('</div>');
                     echo('<br>');
