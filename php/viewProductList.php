@@ -1,3 +1,4 @@
+<?php include "./menu.php"?>
 <?php include "./DbConfig.php"?>
 
 <!DOCTYPE html>
@@ -26,16 +27,15 @@
                 //Execute statement
                 $stmt -> execute();
 
-                //close connection
-                $dbh = null;
+                //Get the number of diferent products (number of rows)
+                $numProducts=$stmt->rowCount();
             }
             catch(PDOException $e) {
                 echo $e -> getMessage();
             }
-
-            //Get the number of diferent products (number of rows)
-            $numProducts=$stmt->rowCount();
-
+            //close connection
+            $dbh = null;
+            
             //No products available
             if($numProducts==0) {
                 echo('No hay ningún producto en nuestra tienda');
