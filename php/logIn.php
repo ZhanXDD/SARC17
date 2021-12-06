@@ -58,7 +58,6 @@
 		<link rel="stylesheet" href="../style/logIn.css">
 	</head>
 	<body>
-		<?php include "../php/menu.php" ?>
 		<h1>Inicio de sesion</h1><br>
 		<div class = "form" id = "form">
 			<form method='POST' id='form'>
