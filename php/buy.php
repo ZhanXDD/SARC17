@@ -8,9 +8,8 @@
                 $dsn ="mysql:dbname=$basededatos;host=$server";
                 $dbh = new PDO($dsn, $user, $pass);
                 //Prepare the statement
-                $id=$_GET['product_id'];
                 $stmt = $dbh -> prepare("SELECT * FROM product WHERE id=?");
-                $stmt -> bindParam(1, $id);
+                $stmt -> bindParam(1, $_GET['id']);
                 //execute statement
                 $stmt -> execute();
 
@@ -34,10 +33,9 @@
         <?php
             echo("<h1>".$productName."</h1>");
             echo('<div class="InfoProducto">');
-            echo('<img src="../img/'.$id.'.jpg" alt="No hay imagen">');
+            echo('<img src="../img/'.$_GET['id'].'.jpg" alt="No hay imagen"><br>');
             echo('Precio: '.$row['price'].'<br>');
-            echo('Descripción:<br>');
-            echo($row['description']);
+            echo('Descripción: '. $row['description']);
             echo('</div>')
         ?>
         <a href="#top">Volver al comienzo de la página</a> 

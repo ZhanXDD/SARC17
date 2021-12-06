@@ -53,7 +53,7 @@
                         echo('Descripción:          '.'<br>');
                         echo(''.$producto->description.'<br>');
                     }
-                    echo('<input type="submit" value="comprar objeto" onclick="buyProduct("'.$producto->id.')"> </input>');
+                    echo('<input type="submit" value="comprar objeto" onclick="buyProduct('.$producto->id.')"> </input>');
                     echo('</div>');
                     echo('<br>');
                 }
