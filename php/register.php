@@ -1,5 +1,4 @@
 <?php include "./DbConfig.php"?>
-
 <?php
 	//a form was sent
 	$feedback = "";
@@ -61,6 +60,7 @@
 				echo $e -> getMessage();
 			}
 			$dbh = null;
+			header("Location : ../php/LogIn.php");
 		}
 	}
 ?>
