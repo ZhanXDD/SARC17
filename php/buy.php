@@ -8,9 +8,8 @@
                 $dsn ="mysql:dbname=$basededatos;host=$server";
                 $dbh = new PDO($dsn, $user, $pass);
                 //Prepare the statement
-                $id=$_GET['product_id'];
                 $stmt = $dbh -> prepare("SELECT * FROM product WHERE id=?");
-                $stmt -> bindParam(1, $id);
+                $stmt -> bindParam(1, $_GET['id']);
                 //execute statement
                 $stmt -> execute();
 
