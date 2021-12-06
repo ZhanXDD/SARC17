@@ -13,8 +13,9 @@
         <a href "top"></a>
 		<h1>Lista de productos</h1>
         <p> A continuación se muestran todos los productos disponibles en nuestra tienda.
-            <a href="menu.php"> volver al menú principal </a> <br>
+            <a href="menu.php"> volver al menú principal </a>
         </p>
+        <br>
         <?php
             try {
                 //Open connection with the databse
