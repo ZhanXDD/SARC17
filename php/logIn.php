@@ -1,3 +1,4 @@
+<?php include "../php/menu.php" ?>
 <?php include "./DbConfig.php"?>
 <?php
 	$feedback = "";
