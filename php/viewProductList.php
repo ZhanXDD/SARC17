@@ -5,7 +5,7 @@
 	<head>
 		<title>Lista de Productos</title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="style\viewProductList.css">
+		<link rel="stylesheet" href="..\style\viewProductList.css">
 	</head>
 	<body>
         <a href "top"></a>
@@ -48,7 +48,7 @@
                     echo('Tipo de producto:     '.$producto->type.'<br>');
                     echo('Precio:               '.$producto->price.' € <br>');
                     echo('Unidades disponibles: '.$producto->stock.'<br>');
-                    if($producto->descripcion) {
+                    if($producto->description) {
                         echo('Descripción:          '.'<br>');
                         echo(''.$producto->description.'<br>');
                     }
