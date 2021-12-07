@@ -2,7 +2,6 @@
 <div id='page-wrap'>
 <link rel="stylesheet" href="../style/menu.css">
 <header class='main' id='h1'>
-    <?php print_r($_SESSION)?>
     <span class="left">
         <a href="../php/viewProductList.php">Produtos</a>
     </span>
