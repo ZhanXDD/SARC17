@@ -4,6 +4,7 @@
 <header class='main' id='h1'>
     <span class="left">
         <a href="../php/viewProductList.php">Produtos</a>
+        <a href="../php/addProduct.php">Añadir Produto</a>
     </span>
     <span class="right">
     <?php
