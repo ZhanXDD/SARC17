@@ -3,21 +3,23 @@
 <?php
 	$feedback = "";
     if(isset($_POST['submit'])){
+		
 		try{
 			$dsn = "mysql:dbname=$basededatos;host=$server";
 			$dbh = new PDO($dsn, $user, $pass);
 			//prepared statement
-			$stmt = $dbh -> prepare("SELECT * FROM user WHERE email=? AND password=?");
+			$stmt = $dbh -> prepare("SELECT * FROM user WHERE email=? AND pass=?");
 			$stmt -> bindParam(1, $_POST['email']);
-
 			$crypt = hash('sha512',$_POST['password']);
-			$stmt -> bindParam(2, $crypt);
 
+			$stmt -> bindParam(2, $crypt);
 			//execute statement
 			$stmt -> execute();
-
 			$row = $stmt -> fetch(PDO::FETCH_ASSOC);
-			if(!$row){
+			if($row != false){
+				$_SESSION['name'] = $row['name'];
+				$_SESSION['email'] = $row['email'];
+
 				$root = simplexml_load_file("../xml/users.xml");
 				$user = $root -> addchild("user");
 				$user -> addChild("email",$_POST['email']);
@@ -32,10 +34,9 @@
 				$xml = new SimpleXMLElement($dom->saveXML());
 				$xml -> asXML("../xml/users.xml");
 
-				$_SESSION['name'] = $row['name'];
-				$_SESSION['email'] = $row['email'];
-				$_SESSION['buy'] = array();
-				header("Location: ./register.php");
+				echo '<script type="text/javascript">
+				window.location.href = "../php/viewProductList.php";
+				</script>';
 				exit();
 			}else{
 				echo "Credenciales incorrectas";
@@ -45,8 +46,6 @@
 		}
 		$dbh = null;
     }
-
-
 ?>
 <!DOCTYPE html>
 <html>
