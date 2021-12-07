@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start();?>
 <div id='page-wrap'>
 <link rel="stylesheet" href="../style/menu.css">
 <header class='main' id='h1'>
