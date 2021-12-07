@@ -39,7 +39,7 @@
             echo('Precio: '.$row['price'].'<br>');
             echo('Descripción: '. $row['description'].'<br>');
 
-            echo('<input type="submit" value="comprar" onclick="goPurchaseEnd('.$row['id']')"> </input>');
+            echo('<input type="submit" value="comprar" onclick="goPurchaseEnd('.$row['id'].')"> </input>');
             echo('<input type="submit" value="volver a la tienda" onclick="goProductList()"> </input>');
             echo('</div>');
             echo('<br>');

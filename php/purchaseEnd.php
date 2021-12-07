@@ -38,8 +38,17 @@
                 echo('<div class="form"> En estos momentos no disponemos del producto seleccionado, sentimos las molestias');
             }
             else {
+                //Open connection with the databse
+                $dsn ="mysql:dbname=$basededatos;host=$server";
+                $dbh = new PDO($dsn, $user, $pass);
+                //Prepare the statement
+                $stmt = $dbh -> prepare("UPDATE product SET stock=[value-1] WHERE id=?");
+                $stmt -> bindParam(1, $_GET['id']);
+                //execute statement
+                $stmt -> execute();
+
                 echo("<h1> Gracias por su compra </h1>");
-                echo("<div>".$productName." adquirido correctamente ");
+                echo('<div class="form">'.$productName.' adquirido correctamente.');
             }
             echo('<input type="submit" value="volver a la tienda" onclick="goProductList()"> </input>');
             echo('<input type="submit" value="cerrar sesión" onclick="logOut()"> </input>');
