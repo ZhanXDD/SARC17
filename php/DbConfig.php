@@ -7,7 +7,7 @@ if ($local==1){
     $basededatos="shop";
 }
 else{
-    $server="localhost";
+    $server="localhost:3306";
     $user="id18030521_root";
     $pass="_Bazar202122";
     $basededatos="id18030521_shop";
