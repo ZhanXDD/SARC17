@@ -2,8 +2,7 @@
     session_start();
     unset($_SESSION['name']);
     unset($_SESSION['email']);
-    unset($_SESSION['buy']);
-
+    
     $xml = simplexml_load_file('../xml/users.xml');
 	foreach ($xml->children() as $sesion){
 		if($sesion['name'] == $_SESSION['name']){
@@ -13,5 +12,7 @@
 	}
 	$xml->asXML('../xml/users.xml');
     session_destroy();
-    header("Location: ./viewProductList.php");
+    echo '<script type="text/javascript">
+			window.location.href = "../php/viewProductList.php";
+			</script>';
 ?>
