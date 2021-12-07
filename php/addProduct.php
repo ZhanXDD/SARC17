@@ -64,7 +64,7 @@
 	<head>
 		<title>Añadir Producto</title>
 		<meta charset="UTF-8">
-		<!-- <script src="../js/verificacion.js"></script> -->
+		<script src="../js/verifyProduct.js"></script>
 		<link rel="stylesheet" href="../style/errors.css">
 	</head>
 	<body>
