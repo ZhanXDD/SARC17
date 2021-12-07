@@ -19,7 +19,7 @@
                 $row = $stmt -> fetch(PDO::FETCH_ASSOC);
                 $productName=$row['name'];
                 echo("<title>".$productName."</title>");
-
+                $productStock=$row['stock'];
                 //close connection
                 $dbh = null;
             }
@@ -38,11 +38,12 @@
                 echo('<div class="form"> En estos momentos no disponemos del producto seleccionado, sentimos las molestias');
             }
             else {
+                $productStock=$productStock-1;
                 //Open connection with the databse
                 $dsn ="mysql:dbname=$basededatos;host=$server";
                 $dbh = new PDO($dsn, $user, $pass);
                 //Prepare the statement
-                $stmt = $dbh -> prepare("UPDATE product SET stock=[value-1] WHERE id=?");
+                $stmt = $dbh -> prepare('UPDATE product SET stock=['.$productStock.'] WHERE id=?');
                 $stmt -> bindParam(1, $_GET['id']);
                 //execute statement
                 $stmt -> execute();
