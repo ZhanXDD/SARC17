@@ -11,6 +11,6 @@ function goProductList() {
 }
 
 function goProfile(email) {
-    window.location.href="viewProductList.php?id="+email;
+    window.location.href="viewProductList.php?email="+email;
 }
 

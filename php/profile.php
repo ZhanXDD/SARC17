@@ -17,7 +17,7 @@
                 //Get the product
                 $row = $stmt -> fetch(PDO::FETCH_ASSOC);
                 $userName=$row['name'];
-                echo("<title> Perfil: ".$productName."</title>");
+                echo("<title> Perfil: ".$userName."</title>");
 
                 //close connection
                 $dbh = null;
@@ -33,12 +33,12 @@
     <body>
         <?php
             echo("<h1> Perfil de usuario </h1>");
-            echo('<div class="InfoProducto">');
+            echo('<div class="form">');
             echo('Nombre de usuario : '.$row['name'].'<br>');
             echo('Correo electrónico: '. $row['email'].'<br>');
             echo('Número de teléfono: '. $row['phone'].'<br>');
-            echo('Número de artículos comprados'. $row['articles'].'<br>');
-            echo('Dinero total gastado'. $row['spent'].'<br>');
+            echo('Número de artículos comprados: '. $row['articles'].'<br>');
+            echo('Dinero total gastado: '. $row['spent'].'<br>');
             echo('<input type="submit" value="volver a la tienda" onclick="goProductList()"> </input>');
             echo('</div>');
             echo('<br>');

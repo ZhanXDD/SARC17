@@ -18,6 +18,7 @@
                 //Get the product
                 $row = $stmt -> fetch(PDO::FETCH_ASSOC);
                 $productName=$row['name'];
+                $productPrice=$row['price'];
                 echo("<title>".$productName."</title>");
                 $productStock=$row['stock'];
                 //close connection
@@ -45,6 +46,18 @@
                 //Prepare the statement
                 $stmt = $dbh -> prepare('UPDATE product SET stock='.$productStock.' WHERE id=?');
                 $stmt -> bindParam(1, $_GET['id']);
+                //execute statement
+                $stmt -> execute();
+
+                //Prepare the statement
+                $stmt = $dbh -> prepare('UPDATE user SET articles=articles+'.1.' WHERE email=?');
+                $stmt -> bindParam(1, $_SESSION['email']);
+                //execute statement
+                $stmt -> execute();
+
+                //Prepare the statement
+                $stmt = $dbh -> prepare('UPDATE user SET spent=spent+'.$productPrice.' WHERE email=?');
+                $stmt -> bindParam(1, $_SESSION['email']);
                 //execute statement
                 $stmt -> execute();
 
