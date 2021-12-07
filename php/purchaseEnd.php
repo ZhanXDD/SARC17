@@ -1,5 +1,6 @@
 <?php include "./menu.php"?>
 <?php include "./DbConfig.php"?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -27,24 +28,23 @@
             }
         ?>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="..\style\viewProductList.css">
+		<link rel="stylesheet" href="..\style\logIn.css">
         <script src="../js/buyProduct.js"></script>
 	</head>
     <body>
-        <a href "top"></a>
         <?php
-            echo("<h1>".$productName."</h1>");
-            echo('<div class="InfoProducto">');
-            echo('<img src="../img/'.$_GET['id'].'.jpg" alt="No hay imagen"><br>');
-            echo('Precio: '.$row['price'].'<br>');
-            echo('Descripción: '. $row['description'].'<br>');
-
-            echo('<input type="submit" value="comprar" onclick="goPurchaseEnd('.$row['id']')"> </input>');
+            if ($row['stock']==0){
+                echo('<h1> Lo sentimos, '.$productName.' no está disponible </h1>');
+                echo('<div class="form"> En estos momentos no disponemos del producto seleccionado, sentimos las molestias');
+            }
+            else {
+                echo("<h1> Gracias por su compra </h1>");
+                echo("<div>".$productName." adquirido correctamente ");
+            }
             echo('<input type="submit" value="volver a la tienda" onclick="goProductList()"> </input>');
+            echo('<input type="submit" value="cerrar sesión" onclick="logOut()"> </input>');
             echo('</div>');
-            echo('<br>');
         ?>
-        <a href="#top">Volver al comienzo de la página</a> 
+         
     </body>
 </html>
-
