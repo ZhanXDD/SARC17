@@ -69,7 +69,9 @@
 				echo $e -> getMessage();
 			}
 			$dbh = null;
-			header("Location: ../php/logIn.php");
+			echo '<script type="text/javascript">
+			window.location.href = "../php/logIn.php";
+			</script>';
 		}
 	}
 ?>
