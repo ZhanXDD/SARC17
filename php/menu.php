@@ -3,8 +3,10 @@
 <link rel="stylesheet" href="../style/menu.css">
 <header class='main' id='h1'>
     <span class="left">
+        <?php if(isset($_SESSION['name'])){?>
         <a href="../php/viewProductList.php">Produtos</a>
         <a href="../php/addProduct.php">Añadir Produto</a>
+        <?php }?>
     </span>
     <span class="right">
     <?php
