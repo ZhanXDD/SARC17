@@ -32,7 +32,6 @@
 				$xml = new SimpleXMLElement($dom->saveXML());
 				$xml -> asXML("../xml/users.xml");
 
-				session_start();
 				$_SESSION['name'] = $row['name'];
 				$_SESSION['email'] = $row['email'];
 				$_SESSION['buy'] = array();
