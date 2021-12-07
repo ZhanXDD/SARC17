@@ -10,3 +10,7 @@ function goProductList() {
     window.location.href="viewProductList.php";
 }
 
+function goProfile(email) {
+    window.location.href="viewProductList.php?id="+email;
+}
+

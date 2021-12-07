@@ -43,7 +43,7 @@
                 $dsn ="mysql:dbname=$basededatos;host=$server";
                 $dbh = new PDO($dsn, $user, $pass);
                 //Prepare the statement
-                $stmt = $dbh -> prepare('UPDATE product SET stock=['.$productStock.'] WHERE id=?');
+                $stmt = $dbh -> prepare('UPDATE product SET stock='.$productStock.' WHERE id=?');
                 $stmt -> bindParam(1, $_GET['id']);
                 //execute statement
                 $stmt -> execute();
