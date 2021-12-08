@@ -2,8 +2,9 @@
     session_start();
     $xml = simplexml_load_file('../xml/users.xml');
 	foreach ($xml->children() as $sesion){
-		if($sesion['email'] == $_SESSION['email']){
-			unset($xml->sesion);
+		if($sesion-> email == $_SESSION['email']){
+			echo "unsetting session";
+			unset($sesion);
 			break;
 		}
 	}
