@@ -103,12 +103,10 @@
                                 <input type="text" id="credit_card" name="credit_card"><br>
                                 <span class="error" id="credit_cardError><?php echo $feedbackCredit_card;?></span><br>
 
+                               
                                 Numero de tarjeta: 
                                 <input type="text" id="card_number" name="card_number"><br>
                                 <span class="error" id="card_numberError"><?php echo $feedbackCard_number;?></span><br>
-
-                                Numero de tarjeta: 
-                                <input type="text" id="card_number2" name="card_number2"><br>
 
                                 Fecha de caducidad: 
                                 <input type="date" id="expiration_date" name="expiration_date"><br>
