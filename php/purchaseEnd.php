@@ -95,6 +95,7 @@
                         echo("<h2>div Gracias por su compra </h2>");
                         echo('<div class="form">'.$productName.' adquirido correctamente.');
                     }
+                }
                     echo('<h1>Introduzca el método de pago</h1><br>
                         <div class = "form" id = "form">
                             <form method="POST" id="form">
@@ -118,7 +119,7 @@
                             </form>
                             <span class="error"><?php echo $feedback;?></span>
                         </div>');
-                }
+                
             echo('<input type="submit" value="volver a la tienda" onclick="goProductList()"> </input>');
             echo('<input type="submit" value="cerrar sesión" onclick="logOut()"> </input>');
             echo('</div>');
