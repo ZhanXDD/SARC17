@@ -5,7 +5,6 @@ $(function(){
             $('#credit_cardError').text('');
     });
 
-    //ANCHOR no se como poner el card_type en el php
     $('#card_number').on('input', function(){
        
         if(this.value)
