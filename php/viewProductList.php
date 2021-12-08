@@ -55,7 +55,7 @@
                         echo('Descripción:          '.'<br>');
                         echo(''.$producto->description.'<br>');
                     }*/
-                    echo('<img src="../img/'.$producto->id.'.jpg" class="right" alt="No hay imagen"><br><br>');
+                    echo('<img src="../img/'.$producto->id.'.jpg" class="rightImg" alt="No hay imagen"><br><br>');
                     echo('<input type="submit" value="comprar objeto" onclick="buyProduct('.$producto->id.')"> </input>');
                     echo('</div>');
                     echo('<br>');
