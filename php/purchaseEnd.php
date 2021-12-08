@@ -81,7 +81,7 @@
                         $stmt -> execute();
 
                         //Prepare the statement
-                        $stmt = $dbh -> prepare('UPDATE user SET articles=articles+'.1.' WHERE email=?');
+                        $stmt = $dbh -> prepare('UPDATE user SET articles=articles+1 WHERE email=?');
                         $stmt -> bindParam(1, $_SESSION['email']);
                         //execute statement
                         $stmt -> execute();
