@@ -97,26 +97,26 @@
                     }
                     echo('<h1>Introduzca el método de pago</h1><br>
                         <div class = "form" id = "form">
-                            <form method='POST' id='form'>
+                            <form method="POST" id="form">
                                 Nombre del titular: 
-                                <input type='text' id='credit_card' name="credit_card"><br>
-                                <span class="error"><?php echo $feedbackCredit_card;?></span><br>
+                                <input type="text" id="credit_card" name="credit_card"><br>
+                                <span class="error" id="credit_cardError><?php echo $feedbackCredit_card;?></span><br>
 
                                 Numero de tarjeta: 
-                                <input type='text' id='card_number' name="card_number"><br>
-                                <span class="error"><?php echo $feedbackCard_number;?></span><br>
+                                <input type="text" id="card_number" name="card_number"><br>
+                                <span class="error" id="card_numberError"><?php echo $feedbackCard_number;?></span><br>
 
                                 Fecha de caducidad: 
-                                <input type='date' id='expiration_date' name="expiration_date"><br>
-                                <span class="error"><?php echo $feedbackExpiration_date;?></span><br>
+                                <input type="date" id="expiration_date" name="expiration_date"><br>
+                                <span class="error" id="expiration_dateError"><?php echo $feedbackExpiration_date;?></span><br>
 
                                 CVC: 
-                                <input type='text' id='card_cvc' name="card_cvc"><br>
-                                <span class="error"><?php echo $feedbackCard_cvc;?></span><br>
+                                <input type="text" id="card_cvc" name="card_cvc"><br>
+                                <span class="error" id="card_cvc" ><?php echo $feedbackCard_cvc;?></span><br>
 
-                                <input type='submit' id='submit' name="submit" value='Comprar'><br>
+                                <input type="submit" id="submit" name="submit" value="Comprar"><br>
                             </form>
-                            <span class='error'><?php echo $feedback;?></span>
+                            <span class="error"><?php echo $feedback;?></span>
                         </div>');
                 }
             echo('<input type="submit" value="volver a la tienda" onclick="goProductList()"> </input>');
