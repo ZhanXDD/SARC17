@@ -6,6 +6,7 @@
 	<head>
 		<title>Lista de Productos</title>
 		<meta charset="UTF-8">
+        <link rel="stylesheet" href="..\style\body.css">
 		<link rel="stylesheet" href="..\style\viewProductList.css">
         <script src="../js/buyProduct.js"></script>
 	</head>
@@ -55,7 +56,7 @@
                         echo('Descripción:          '.'<br>');
                         echo(''.$producto->description.'<br>');
                     }*/
-                    echo('<img src="../img/'.$producto->id.'.jpg" class="right" alt="No hay imagen"><br><br>');
+                    echo('<img src="../img/'.$producto->id.'.jpg" class="rightImg" alt="No hay imagen"><br><br>');
                     echo('<input type="submit" value="comprar objeto" onclick="buyProduct('.$producto->id.')"> </input>');
                     echo('</div>');
                     echo('<br>');

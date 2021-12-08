@@ -32,7 +32,6 @@
         <script src="../js/buyProduct.js"></script>
 	</head>
     <body>
-        <a href "top"></a>
         <?php
             echo("<h1>".$productName."</h1>");
             echo('<div class="InfoProducto">');
@@ -40,12 +39,18 @@
             echo('Precio: '.$row['price'].'<br>');
             echo('Descripción: '. $row['description'].'<br>');
 
-            echo('<input type="submit" value="comprar" onclick="goPurchaseEnd('.$row['id'].')"> </input>');
+            if ($row['stock']==0) {
+                echo('<span class="error"> El producto no está disponible </span> <br>');
+                echo('<input type="submit" value="comprar"  onclick="goPurchaseEnd('.$row['id'].')" disable> </input> <br>');
+            }
+            else {
+                echo('<input type="submit" value="comprar" onclick="goPurchaseEnd('.$row['id'].')"> </input>');
+            
+            }
             echo('<input type="submit" value="volver a la tienda" onclick="goProductList()"> </input>');
             echo('</div>');
             echo('<br>');
         ?>
-        <a href="#top">Volver al comienzo de la página</a> 
     </body>
 </html>
 

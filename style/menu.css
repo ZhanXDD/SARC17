@@ -1,9 +1,4 @@
 @charset "utf-8";
-*{
-    margin: 0;
-    padding: 0;
-}
-
 #page-wrap{
     margin: 2% auto;
     color: white;
@@ -18,11 +13,13 @@
 }
 
 .right{
+    color: #e5be01;
     float: right;
     font-size: large;
 }
 
 .left{
+    color: #e5be01;
     float: left;
     font-size: large;
 }
