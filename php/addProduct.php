@@ -66,6 +66,9 @@
 		<meta charset="UTF-8">
 		<script src="../js/verifyProduct.js"></script>
 		<link rel="stylesheet" href="../style/errors.css">
+		<link rel="stylesheet" href="../style/logIn.css">
+		<link rel="stylesheet" href="../style/body.css">
+		
 	</head>
 	<body>
 		
