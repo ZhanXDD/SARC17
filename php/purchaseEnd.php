@@ -39,6 +39,7 @@
                 echo('<div class="form"> En estos momentos no disponemos del producto seleccionado, sentimos las molestias');
             }
             else {
+                $feedback="";
                 $feedbackCredit_card = "";
                 $feedbackCard_number = "";
                 $feedbackExpiration_date = "";
@@ -101,9 +102,8 @@
                             <form method="POST" id="form">
                                 Nombre del titular: 
                                 <input type="text" id="credit_card" name="credit_card"><br>
-                                <span class="error" id="credit_cardError><?php echo $feedbackCredit_card;?></span><br>
+                                <span class="error" id="credit_cardError"><?php echo $feedbackCredit_card;?></span><br>
 
-                               
                                 Numero de tarjeta: 
                                 <input type="text" id="card_number" name="card_number"><br>
                                 <span class="error" id="card_numberError"><?php echo $feedbackCard_number;?></span><br>
