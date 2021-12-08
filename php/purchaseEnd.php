@@ -119,11 +119,11 @@
                             </form>
                             <span class="error"><?php echo $feedback;?></span>
                         </div>');
-                
+             }   
             echo('<input type="submit" value="volver a la tienda" onclick="goProductList()"> </input>');
             echo('<input type="submit" value="cerrar sesión" onclick="logOut()"> </input>');
             echo('</div>');
-            }
+            
         ?>
          
     </body>
