@@ -1,18 +1,4 @@
 @charset "utf-8";
-
-body {
-	background-image: url(https://images.vectorhq.com/images/previews/36d/oriental-background-2-psd-428632.png);
-    background-position: center;
-	background-size: cover;
-    background-attachment: fixed;
-	font-size: 1.1rem;
-    font-family: Cinzel,serif;
-    color: #fff;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;	
-}
-
-
 h1{
 	color: #e5be01;
 	text-align: center;
@@ -33,7 +19,6 @@ h1{
 
 a {
 	color: #e5be01;
-	padding: 1% 2%;
 }
 
 p {
@@ -46,6 +31,6 @@ img {
 	filter: drop-shadow(0 0 6px #e5be01);
 }
 
-.right {
+.rightImg {
 	margin-left: 100%;
 }
