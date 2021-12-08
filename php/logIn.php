@@ -23,7 +23,7 @@
 				$root = simplexml_load_file("../xml/users.xml");
 				$user = $root -> addchild("user");
 				$user -> addChild("email",$_POST['email']);
-				$xml -> asXML("../xml/users.xml");
+				$root -> asXML("../xml/users.xml");
 
 				echo '<script type="text/javascript">
 				window.location.href = "../php/inicio.php";
