@@ -55,7 +55,7 @@ $(function(){
     });
 
     $('#card_cvc').on('input', function(){
-        if(this.value.match(/^[0-9]{3}*$/))
+        if(this.value.match(/^[0-9]{3}$/))
             $('#card_cvcError').text('');
     });
 

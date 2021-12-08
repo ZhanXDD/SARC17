@@ -75,7 +75,7 @@
                             <input type="submit" value="cerrar sesión" onclick="logOut()"> </input>
                         </div>');
 
-                        
+
                 if(isset($_POST['submit'])){
                     //check for empty name
                     if($_POST['credit_card'] == ""){
@@ -104,7 +104,7 @@
                     }
 
                     //check for empty cvc 
-                    if(!preg_match("/^[0-9]{3}*$/",$_POST['card_cvc']){
+                    if(!preg_match("/^[0-9]{3}$/",$_POST['card_cvc']){
                         $feedbacCard_cvc = "Falta el cvc";
                         $feedback = "error";
                     }
