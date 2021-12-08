@@ -27,6 +27,7 @@
             }
         ?>
 		<meta charset="UTF-8">
+        <script src="../js/jquery-3.4.1.min.js"></script>
 		<link rel="stylesheet" href="..\style\viewProductList.css">
         <script src="../js/buyProduct.js"></script>
 	</head>

@@ -31,6 +31,8 @@
         ?>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="..\style\logIn.css">
+    <link rel="stylesheet" href="..\style\error.css">
+    <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/buyProduct.js"></script>
 </head>
 
@@ -47,36 +49,35 @@
 
         if(isset($_POST['submit'])){
             //check for empty name
-            if($_POST['credit_card'] == ""){
-                $feedbackCredit_card = "Falta el nombre del titular";
+            if(!preg_match("/^[a-z][A-Z]?$/",$_POST['credit_card'])){
+                $feedbackCredit_card = "Nombre de titular no válido";
                 $feedback = "error";
             }
 
             //check for card number
             
-            if(!preg_match("/^4[0-9]{12}(?:[0-9]{3})?$/",$_POST['card_number'])){
-                $feedbackCard_number = "Visa";
-            }else if(!preg_match("/(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$ /",$_POST['card_number'])){
-                $feedbackCard_number = "MasterCard";
-            }else if($_POST['card_number'] == ""){
+           if($_POST['card_number'] == ""){
                 $feedbackCard_number = "Introduzca el número de tarjeta";
                 $feedback = "error";
-            }else{
+                
+            }else if(!preg_match("/^[0-9]{16}?$/",$_POST['card_number'])){
                 $feedbackCard_number = "Tarjeta no válida";
-                $feedback = "error";
-            }
+                $feedback = "error"; 
+            } 
 
             //check for empty expiration date
             if($_POST['expiration_date'] == ""){
-                $feedbackExpiration_date = "Falta la fecha de caducidad";
+                $feedbackExpiration_date = "Fecha de caducidad no válida";
                 $feedback = "error";
             }
 
             //check for empty cvc 
-            if(!preg_match("/^[0-9]{3}$/",$_POST['card_cvc'])){
-                $feedbacCard_cvc = "Falta el cvc";
+            if(!preg_match("/^[0-9]{3}?$/",$_POST['card_cvc'])){
+                $feedbackCard_cvc = "CVC no válido";
                 $feedback = "error";
             }
+
+
             if($feedback===''){
 
                 $productStock=$productStock-1;
@@ -104,6 +105,7 @@
                 echo("<h2>div Gracias por su compra </h2>");
                 echo('<div class="form">'.$productName.' adquirido correctamente.</div>');
             }
+            $feedback='';
         }
          
     ?>
@@ -124,7 +126,7 @@
 
             CVC:
             <input type="text" id="card_cvc" name="card_cvc"><br>
-            <span class="error" id="card_cvc"><?php echo $feedbackCard_cvc;?></span><br>
+            <span class="error" id="card_cvcError"><?php echo$feedbackCard_cvc;?></span><br>
 
             <input type="submit" id="submit" name="submit" value="Comprar"><br>
         </form>
