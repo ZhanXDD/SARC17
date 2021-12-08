@@ -49,31 +49,7 @@
                 $feedbackCard_cvc= "";
                 
 
-                echo('<h1>Introduzca el método de pago</h1><br>
-                        <div class = "form" id = "form">
-                            <form method="POST" id="form">
-                                Nombre del titular: 
-                                <input type="text" id="credit_card" name="credit_card"><br>
-                                <span class="error" id="credit_cardError"><?php echo $feedbackCredit_card;?></span><br>
-
-                                Numero de tarjeta: 
-                                <input type="text" id="card_number" name="card_number"><br>
-                                <span class="error" id="card_numberError"><?php echo $feedbackCard_number;?></span><br>
-
-                                Fecha de caducidad: 
-                                <input type="date" id="expiration_date" name="expiration_date"><br>
-                                <span class="error" id="expiration_dateError"><?php echo $feedbackExpiration_date;?></span><br>
-
-                                CVC: 
-                                <input type="text" id="card_cvc" name="card_cvc"><br>
-                                <span class="error" id="card_cvc" ><?php echo $feedbackCard_cvc;?></span><br>
-
-                                <input type="submit" id="submit" name="submit" value="Comprar"><br>
-                            </form>
-                            <span class="error"><?php echo $feedback;?></span>
-                            <input type="submit" value="volver a la tienda" onclick="goProductList()"> </input>
-                            <input type="submit" value="cerrar sesión" onclick="logOut()"> </input>
-                        </div>');
+                
 
 
                 if(isset($_POST['submit'])){
@@ -104,7 +80,7 @@
                     }
 
                     //check for empty cvc 
-                    if(!preg_match("/^[0-9]{3}$/",$_POST['card_cvc']){
+                    if(!preg_match("/^[0-9]{3}$/",$_POST['card_cvc'])){
                         $feedbacCard_cvc = "Falta el cvc";
                         $feedback = "error";
                     }
@@ -137,6 +113,32 @@
                     }
                 }
                     
+            
+                echo('<h1>Introduzca el método de pago</h1><br>
+                        <div class = "form" id = "form">
+                            <form method="POST" id="form">
+                                Nombre del titular: 
+                                <input type="text" id="credit_card" name="credit_card"><br>
+                                <span class="error" id="credit_cardError"><?php echo $feedbackCredit_card;?></span><br>
+
+                                Numero de tarjeta: 
+                                <input type="text" id="card_number" name="card_number"><br>
+                                <span class="error" id="card_numberError"><?php echo $feedbackCard_number;?></span><br>
+
+                                Fecha de caducidad: 
+                                <input type="date" id="expiration_date" name="expiration_date"><br>
+                                <span class="error" id="expiration_dateError"><?php echo $feedbackExpiration_date;?></span><br>
+
+                                CVC: 
+                                <input type="text" id="card_cvc" name="card_cvc"><br>
+                                <span class="error" id="card_cvc" ><?php echo $feedbackCard_cvc;?></span><br>
+
+                                <input type="submit" id="submit" name="submit" value="Comprar"><br>
+                            </form>
+                            <span class="error"><?php echo $feedback;?></span>
+                            <input type="submit" value="volver a la tienda" onclick="goProductList()"> </input>
+                            <input type="submit" value="cerrar sesión" onclick="logOut()"> </input>
+                        </div>');
             }   
             
             
