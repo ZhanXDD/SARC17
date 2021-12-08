@@ -109,7 +109,7 @@
                         $stmt -> execute();
                         
                         echo("<h2>div Gracias por su compra </h2>");
-                        echo('<div class="form">'.$productName.' adquirido correctamente.');
+                        echo('<div class="form">'.$productName.' adquirido correctamente.</div>');
                     }
                 }
                     
