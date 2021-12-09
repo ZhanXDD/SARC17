@@ -16,6 +16,6 @@
 	
     session_destroy();
     echo '<script type="text/javascript">
-			window.location.href = "../php/viewProductList.php";
+			window.location.href = "../php/inicio.php";
 			</script>';
 ?>
