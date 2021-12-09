@@ -41,7 +41,8 @@
 
             if ($row['stock']<=0) {
                 echo('<span class="error"> El producto no está disponible </span> <br>');
-                echo('<input type="submit" value="comprar"  onclick="goPurchaseEnd('.$row['id'].')" disable> </input> <br>');
+                echo('<input type="submit" value="comprar"  onclick="goPurchaseEnd('.$row['id'].')" disable> </input> <br>
+                document.getElementById("Button").disabled = true;');
             }
             else {
                 echo('<input type="submit" value="comprar" onclick="goPurchaseEnd('.$row['id'].')"> </input>');
