@@ -144,7 +144,7 @@
         }
         ?>
         <input type="submit" value="volver a la tienda" onclick="goProductList()"> </input>
-        <input type="submit" value="cerrar sesión" onclick="logOut()"> </input>
+        
     </div>
 
 

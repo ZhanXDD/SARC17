@@ -29,6 +29,7 @@
 		<meta charset="UTF-8">
         <script src="../js/jquery-3.4.1.min.js"></script>
 		<link rel="stylesheet" href="..\style\viewProductList.css">
+        <link rel="stylesheet" href="..\style\body.css">
         <script src="../js/buyProduct.js"></script>
 	</head>
     <body>
@@ -41,8 +42,7 @@
 
             if ($row['stock']<=0) {
                 echo('<span class="error"> El producto no está disponible </span> <br>');
-                echo('<input type="submit" value="comprar"  onclick="goPurchaseEnd('.$row['id'].')" disable> </input> <br>
-                document.getElementById("Button").disabled = true;');
+                echo('<input type="submit" value="comprar" disable> </input> <br>');
             }
             else {
                 echo('<input type="submit" value="comprar" onclick="goPurchaseEnd('.$row['id'].')"> </input>');
