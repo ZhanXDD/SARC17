@@ -113,30 +113,36 @@
         }
          
     ?>
-    //ANCHOR lo quita desde un principio
 
+    <?php if($productStock>0){
+        ?>
+    
     <h1>Introduzca el método de pago</h1><br>
     <div class="form" id="form">
         <form method="POST" id="form">
-            Nombre del titular:
+            Nombre del titular:<br>
             <input type="text" id="credit_card" name="credit_card"><br>
             <span class="error" id="credit_cardError"><?php echo $feedbackCredit_card;?></span><br>
 
-            Numero de tarjeta:
+            Numero de tarjeta:<br>
             <input type="text" id="card_number" name="card_number"><br>
             <span class="error" id="card_numberError"><?php echo $feedbackCard_number;?></span><br>
 
-            Fecha de caducidad:
+            Fecha de caducidad:<br>
             <input type="date" id="expiration_date" name="expiration_date"><br>
             <span class="error" id="expiration_dateError"><?php echo $feedbackExpiration_date;?></span><br>
 
-            CVC:
+            CVC:<br>
             <input type="text" id="card_cvc" name="card_cvc"><br>
             <span class="error" id="card_cvcError"><?php echo$feedbackCard_cvc;?></span><br>
 
             <input type="submit" id="submit" name="submit" value="Comprar"><br>
         </form>
-
+        <?php
+        }else{
+            echo('<div class="form" id="form">El producto no está disponible</div>');
+        }
+        ?>
         <input type="submit" value="volver a la tienda" onclick="goProductList()"> </input>
         <input type="submit" value="cerrar sesión" onclick="logOut()"> </input>
     </div>

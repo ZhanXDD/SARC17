@@ -39,7 +39,7 @@
             echo('Precio: '.$row['price'].'<br>');
             echo('Descripción: '. $row['description'].'<br>');
 
-            if ($row['stock']==0) {
+            if ($row['stock']<=0) {
                 echo('<span class="error"> El producto no está disponible </span> <br>');
                 echo('<input type="submit" value="comprar"  onclick="goPurchaseEnd('.$row['id'].')" disable> </input> <br>');
             }
