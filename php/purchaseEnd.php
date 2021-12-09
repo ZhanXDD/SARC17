@@ -140,7 +140,7 @@
         </form>
         <?php
         }else{
-            echo('<div class="form" id="form">El producto no está disponible</div>');
+            echo('<div class="form" id="form">El producto no está disponible.<br> Sentimos las molestias. <br>');
         }
         ?>
         <input type="submit" value="volver a la tienda" onclick="goProductList()"> </input>
