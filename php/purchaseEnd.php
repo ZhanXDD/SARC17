@@ -32,6 +32,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="..\style\logIn.css">
     <link rel="stylesheet" href="..\style\error.css">
+    <link rel="stylesheet" href="..\style\body.css">
     <script src="../js/jquery-3.4.1.min.js"></script>
     <script src="../js/buyProduct.js"></script>
 </head>
@@ -40,6 +41,7 @@
     <?php
             
         $feedback="";
+        $feedbackCompleted="";
         $feedbackCredit_card = "";
         $feedbackCard_number = "";
         $feedbackExpiration_date = "";
@@ -49,7 +51,7 @@
 
         if(isset($_POST['submit'])){
             //check for empty name
-            if(!preg_match("/^[a-z][A-Z]?$/",$_POST['credit_card'])){
+            if(!preg_match("/^[a-zA-Z]+$/",$_POST['credit_card'])){
                 $feedbackCredit_card = "Nombre de titular no válido";
                 $feedback = "error";
             }
@@ -102,13 +104,17 @@
                 //execute statement
                 $stmt -> execute();
                 
-                echo("<h2>div Gracias por su compra </h2>");
-                echo('<div class="form">'.$productName.' adquirido correctamente.</div>');
+                echo '<script type="text/javascript">
+				window.location.href = "../php/purchaseCompleted.php?product_name='.$productName.'"
+				</script>';
+                
             }
-            $feedback='';
+
         }
          
     ?>
+    //ANCHOR lo quita desde un principio
+
     <h1>Introduzca el método de pago</h1><br>
     <div class="form" id="form">
         <form method="POST" id="form">
@@ -130,11 +136,10 @@
 
             <input type="submit" id="submit" name="submit" value="Comprar"><br>
         </form>
-        <span class="error"><?php echo $feedback;?></span>
+
         <input type="submit" value="volver a la tienda" onclick="goProductList()"> </input>
         <input type="submit" value="cerrar sesión" onclick="logOut()"> </input>
     </div>
-
 
 
 </body>

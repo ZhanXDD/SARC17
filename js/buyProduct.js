@@ -21,8 +21,6 @@ $(function(){
         if(this.value)
             $('#card_cvcError').text('');
     });
-
-    
 });
 
 function buyProduct(productId) {
