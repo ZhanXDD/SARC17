@@ -83,6 +83,8 @@
 		<script src='../js/jquery-3.4.1.min.js'></script>
 		<script src="../js/verificacion.js"></script>
 		<link rel="stylesheet" href="../style/errors.css">
+		<link rel="stylesheet" href="../style/body.css">
+		<link rel="stylesheet" href="../style/logIn.css">
 	</head>
 	<body>
 		<h1>Registrarse</h1><br>

@@ -1,0 +1,12 @@
+body {
+	background-image: url(https://images.vectorhq.com/images/previews/36d/oriental-background-2-psd-428632.png);
+    background-position: center;
+	background-size: cover;
+    background-attachment: fixed;
+	font-size: 1.1rem;
+    font-family: Cinzel,serif;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;	
+}
+

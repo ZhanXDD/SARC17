@@ -33,7 +33,7 @@
 		}
         //Check if price has valid format
 		if(!preg_match("/^\d{1,5}(\.\d{1,2})?$/",$_POST['price'])){
-			$feedbackPrice = "";
+			$feedbackPrice = "El precio esta mal insertado";
 			$feedback = "error";
 		}
 
@@ -64,33 +64,37 @@
 	<head>
 		<title>Añadir Producto</title>
 		<meta charset="UTF-8">
-		<!-- <script src="../js/verificacion.js"></script> -->
+		<script src="../js/jquery-3.4.1.min.js"></script>
+		<script src="../js/verifyProduct.js"></script>
 		<link rel="stylesheet" href="../style/errors.css">
+		<link rel="stylesheet" href="../style/logIn.css">
+		<link rel="stylesheet" href="../style/body.css">
+		
 	</head>
 	<body>
 		
 		<h1>Añadir Producto</h1><br>
 		<div class = "form" id = "form">
 			<form method='POST' id='form'>
-				Nombre de producto<small>*</small>: 
+				Nombre de producto<small>*</small>:
 				<input type='text' id='name' name="name">
-				<span class="error"><?php echo $feedbackName;?></span><br>
+				<span class="error" id="nameError"><?php echo $feedbackName;?></span><br>
 
-				Tipo de producto<small>*</small>: 
+				Tipo de producto<small>*</small>:
 				<input type='text' id='type' name="type">
-				<span class="error"><?php echo $feedbackType;?></span><br>
+				<span class="error" id="typeError" name="typeError"><?php echo $feedbackType;?></span><br>
 				
-				Stock<small>*</small>: 
+				Stock<small>*</small>:
 				<input type="number" id='stock' name="stock" step="any" min="1" value="1">
-				<span class="error"><?php echo $feedbackStock;?></span><br>
+				<span class="error" id="stockError" name="stockError"><?php echo $feedbackStock;?></span><br>
 				
-				Precio<small>*</small>: 
+				Precio<small>*</small>:
 				<input type="number" id='price' name="price" step="0.01" min="0" value="0.00">
-				<span class="error"><?php echo $feedbackPrice;?></span><br>
+				<span class="error" id="priceError" name="priceError"><?php echo $feedbackPrice;?></span><br>
 
-				Descripcion<small>*</small>: 
+				Descripcion<small>*</small>:
 				<input type='text' id='description' name="description">
-				<span class="error"><?php echo $feedbackDescription;?></span><br>
+				<span class="error" id="descriptionError" name="descriptionError"><?php echo $feedbackDescription;?></span><br>
 				
 				<input type='submit' id='submit' name="submit" value='Añadir producto'><br>
 			</form>

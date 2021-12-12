@@ -23,19 +23,10 @@
 				$root = simplexml_load_file("../xml/users.xml");
 				$user = $root -> addchild("user");
 				$user -> addChild("email",$_POST['email']);
-				
-				// Formating XML
-				$dom = new DOMDocument("1.0");
-				$dom->preserveWhiteSpace = false;
-				$dom->formatOutput = true;
-				$dom->loadXML($root->asXML());
-
-				// Save xml
-				$xml = new SimpleXMLElement($dom->saveXML());
-				$xml -> asXML("../xml/users.xml");
+				$root -> asXML("../xml/users.xml");
 
 				echo '<script type="text/javascript">
-				window.location.href = "../php/viewProductList.php";
+				window.location.href = "../php/inicio.php";
 				</script>';
 				exit();
 			}else{
@@ -54,6 +45,7 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" href="../style/errors.css">
 		<link rel="stylesheet" href="../style/logIn.css">
+		<link rel="stylesheet" href="../style/body.css">
 	</head>
 	<body>
 		<h1>Inicio de sesion</h1><br>
